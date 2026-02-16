@@ -146,13 +146,14 @@ lvim.builtin.lualine.sections = {
       color = { fg = "#ffffff" }, -- Cor do ícone (opcional)
       padding = { left = 1, right = 0 }
     },
-    'filename' 
+    'filename' ,
+    'diagnostics'
   },
   
   lualine_x = { 
     'encoding', 
     'fileformat',
-    'filetype' -- Mostra o ícone da linguagem (ex: C, Python, Lua)
+    'filetype', -- Mostra o ícone da linguagem (ex: C, Python, Lua)
   }, 
   lualine_y = { 'progress' },
   lualine_z = { 'location' },
