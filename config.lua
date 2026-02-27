@@ -121,6 +121,28 @@ lvim.plugins = {
       require("spectre").setup()
     end,
   },
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          -- Formatadores para as linguagens que você usa:
+          c = { "clang-format" },
+          cpp = { "clang-format" },
+          cs = { "csharpier" },
+          ruby = { "rubocop" },
+          python = { "isort", "black" },
+          javascript = { "prettierd", "prettier", stop_after_first = true },
+        },
+        -- Configuração para formatar ao salvar
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_format = "fallback",
+        },
+      })
+    end,
+  }
 }
 lvim.colorscheme = "bamboo"
 lvim.builtin.alpha.active = false
@@ -165,3 +187,10 @@ lvim.builtin.lualine.options.section_separators = { left = '', right = ''}
 lvim.builtin.which_key.mappings["s"]["r"] = { "<cmd>lua require('spectre').open()<CR>", "Replace (Spectre)" }
 lvim.builtin.which_key.mappings["s"]["w"] = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Replace Word" }
 lvim.builtin.which_key.mappings["s"]["f"] = { "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", "Replace in Current File" }
+-- Atalhos personalizados para o Terminal
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Terminal",
+  h = { "<cmd>ToggleTerm size=15 direction=horizontal<cr>", "Terminal Horizontal" },
+  v = { "<cmd>ToggleTerm size=60 direction=vertical<cr>", "Terminal Vertical" },
+  f = { "<cmd>ToggleTerm direction=float<cr>", "Terminal Flutuante" },
+  }
